@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movies</title>
+</head>
+<body>
+    <ul>
+        <% movies.forEach((movie) => { %>
+            <li>
+                <a href="/movies/update/<%= movie.id %>"><%= movie.name %></a>
+                <button type="button" onclick="deleteMovie(<%= movie.id %>)">Borrar</button>
+
+                
+            </li>
+        <% }); %>
+
+        <a href="/movies/create">Add movie</a>
+    </ul>
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+       <!-- <script>
+        function deleteGame(id) {
+            console.log(id);
+            
+            $.post('/games/delete/' + id, function (){
+                //callback
+                window.location.reload();
+            });
+        }
+    </script> -->
+
+    <!-- /public/javascripts/index.js -->
+    <!-- src se cargan sin incluir el public -->
+    <script src="/javascripts/index.js"></script>
+</body>
+</html>

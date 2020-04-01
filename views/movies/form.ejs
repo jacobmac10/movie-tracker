@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new Movie</title>
+</head>
+<body>
+    <a href="/movies"> back to movies</a>
+
+  <h1><%= title %></h1>  
+
+  <form action="/movies/create" method="post">
+      <div>
+          <label for="name">Name:</label>
+          <% if (locals.movie) { %>
+            <input type="text" id="name" name="name" value="<%= movie.name %>">
+        <% } else { %>
+            <input type="text" id="name" name="name">
+        <% } %>
+
+     </div>
+      
+      <% if (locals.errorMessage) { %>
+       <p style="color: red;"><%= errorMessage %> </p>
+      <% } %>
+      <button>Save</button>
+  </form>
+</body>
+</html>
